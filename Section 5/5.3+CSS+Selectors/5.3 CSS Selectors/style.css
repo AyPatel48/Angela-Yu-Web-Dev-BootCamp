@@ -9,18 +9,18 @@ ol {
   text-align: center;
 }
 
-p{
+p {
   color: red;
 }
 
-.note{
-  font-size: 20px;
+.note {
+  font-size: 20px
 }
 
-#id-selector-demo{
-  color: green;
+#id-selector-demo {
+  color : green;
 }
 
-li[value="4"]{
-  color: blue;
+li[value="4"] {
+  color : blue;
 }
