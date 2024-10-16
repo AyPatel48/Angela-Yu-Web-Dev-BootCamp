@@ -3,7 +3,7 @@ for (let i = 0; i < document.querySelectorAll(".drum").length; i++) {
 }
 function handleClick() {
   var buttonText = this.innerHTML;
-  makeSound(buttonTex);
+  makeSound(buttonText);
   buttonAnimation(buttonText.toString());
 }
 
@@ -19,6 +19,7 @@ function buttonAnimation(currentKey) {
 
 document.addEventListener("keydown", function (event) {
   makeSound(event.key);
+  buttonAnimation(event.key);
 });
 
 function makeSound(key) {
