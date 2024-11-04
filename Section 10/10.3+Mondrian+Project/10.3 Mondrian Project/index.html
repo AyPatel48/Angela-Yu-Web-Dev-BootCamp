@@ -19,11 +19,84 @@
     HINT: Remember you can't change the properties of grid lines.
     But grid lines are transparent!
     */
+
+    .container{
+      height: 748px;
+      width: 748px;
+      display: grid;
+      background-color: #000;
+      grid-template-columns: 320px 198px 153px 50px;
+      grid-template-rows: 414px 130px 155px 22px;
+      gap: 9px;
+    }
+
+    .red{
+      grid-area: 1 / 1 / 1 / 1;
+      background-color: red;
+    }
+
+    .white1{
+      grid-row: 1;
+      grid-column: span 5;
+      background-color: #F0F1EC;
+    }
+
+    .white2{
+      grid-row: span 2;
+      grid-column: span 1;
+      background-color: #F0F1EC;
+    }
+
+    .white3{
+      grid-area: 2 / 2 / 4 / 4;
+      background-color: #F0F1EC;
+    }
+
+    .white4{
+      grid-area: 4;
+      background-color: #F0F1EC;
+    }
+
+    .white5{
+      grid-area: 3 / 4 / 5 / 5;
+      background-color: #F0F1EC;
+    }
+
+    .blue{
+      grid-area: 2 / 4 / 3 / 5;
+      background-color: #004592;
+      border-bottom: 10px solid black;
+    }
+
+    .black{
+      grid-area: 4 / 3 / 5 / 4;
+      background-color: #232629;
+    }
+
+    .yellow{
+      grid-area: 4 / 2 / 5 / 3;
+      background-color: #F9D01E;
+    }
   </style>
 </head>
 
 <body>
   <!-- Write your HTML here -->
+  <div class="container">
+    <div class="red"></div>
+
+    <div class="white1"></div>
+    <div class="white2"></div>
+    <div class="white3"></div>
+
+    <div class="blue item"></div>
+
+    <div class="white4"></div>
+    <div class="white5"></div>
+
+    <div class="black"></div>
+    <div class="yellow"></div>
+  </div>
 </body>
 
 </html>
