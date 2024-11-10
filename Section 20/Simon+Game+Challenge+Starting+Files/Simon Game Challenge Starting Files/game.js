@@ -5,6 +5,7 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var level = 0;
 
 function nextSequence(){
+    $("#level-title").text("Level " + level);
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
     gamePattern.push(randomChosenColour);
@@ -68,8 +69,12 @@ function animatePress(currentColour){
 }
 
 function startGame(){
-    $(document).on("keypress", nextSequence);
+    nextSequence();
+    
     console.log(level);
 }
+
+$(document).on("keypress", startGame);
+$(document).off("keypress");
 
 startGame();
