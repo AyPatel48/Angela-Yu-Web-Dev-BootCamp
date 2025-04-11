@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
   const today = new Date();
   //Test code
   // weekend:
-  // new Date("June 24, 2023 11:13:00");
+  // new Date("June 24, 2023 11:13:0 0");
   // weekday:
   // new Date("June 20, 2023 11:13:00");
   const day = today.getDay();
