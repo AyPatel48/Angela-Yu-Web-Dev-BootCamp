@@ -1,3 +1,9 @@
 {
-    "livePreview.defaultPreviewPath": "/Section 4/4.3 HTML Porfolio Project/index.html"
+    "livePreview.defaultPreviewPath": "/Section 4/4.3 HTML Porfolio Project/index.html",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }
