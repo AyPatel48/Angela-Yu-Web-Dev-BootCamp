@@ -8,20 +8,80 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //1. GET a random joke
+app.get("/random", (req, res) => {
+  const randomIndex = Math.floor(Math.random() * jokes.length);
+  res.json(jokes[randomIndex]);
+});
 
 //2. GET a specific joke
+app.get("/joke/:id", (req, res) => {
+  const jokeId = parseInt(req.params.id);
+  const joke = jokes.find(joke => joke.id === jokeId);
+  res.json(joke);
+});
 
 //3. GET a jokes by filtering on the joke type
+app.get("/filter", (req, res) => {
+  const type = req.query.type;
+  const jokesFiltered = jokes.filter(joke => joke.jokeType === type);
+  res.json(jokesFiltered);
+});
 
 //4. POST a new joke
+app.post("/joke", (req, res) => {
+  const newJoke = {
+    id: jokes.length + 1,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  }
+  jokes.push(newJoke);
+  console.log(jokes.slice(-1));
+  res.json(newJoke);
+})
 
 //5. PUT a joke
+app.put("/joke/:id", (req, res) => {
+  const joke = {
+    id: parseInt(req.params.id),
+    jokeText: req.body.text,
+    jokeType: req.body.type
+  };
+  const jokeAtIndex = jokes.findIndex(j => j.id === joke.id);
+  jokes[jokeAtIndex] = joke;
+  
+  res.json(jokeAtIndex);
+});
 
 //6. PATCH a joke
+app.patch("/joke/:id", (req, res) => {
+  const jokeId = parseInt(req.params.id);
+  const joke = jokes.find(joke => joke.id === jokeId);
+  joke.jokeText = req.body.text || joke.jokeText;
+  joke.jokeType = req.body.type || joke.jokeType;
+  res.json(joke);
+});
 
 //7. DELETE Specific joke
+app.delete("/joke/:id", (req, res) => {
+  const jokeIndex = jokes.findIndex(joke => joke.id === parseInt(req.params.id));
+  if(jokeIndex > -1){
+    jokes.splice(jokeIndex, 1);
+    res.sendStatus(200);
+  } else {
+    res.status(404).send(`Joke with id: ${req.params.id} not found.
+      No joke were deleted.`);
+  }
+});
 
 //8. DELETE All jokes
+app.delete("/all", (req, res) => {
+  if(req.query.key === masterKey){
+    jokes = [];
+    res.sendStatus(200);
+  } else {
+    res.status(404).json({error: "You are not authorized to perform this action."});
+  }
+})
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
