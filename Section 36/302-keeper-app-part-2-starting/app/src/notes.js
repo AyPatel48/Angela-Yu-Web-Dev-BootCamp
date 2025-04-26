@@ -1,4 +1,4 @@
-const notes = [
+export const notes = [
   {
     key: 1,
     title: "Delegation",
