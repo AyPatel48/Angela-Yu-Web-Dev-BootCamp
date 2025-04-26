@@ -20,7 +20,9 @@
             </div>
             <button type="submit" class="btn btn-dark">Login</button>
           </form>
-
+          <% if (locals.error) { %>
+            <p style="color:red;"><%= locals.error %></p>
+          <% } %>
         </div>
       </div>
     </div>
