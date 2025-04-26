@@ -16,3 +16,14 @@
 // to install the node modules and
 // npm run dev
 // to launch your react project in your browser
+
+import React from "react";
+import App from "../app/src/components/App";
+
+export default function Home() {
+    return (
+        <>
+            <App />
+        </>
+    );
+}
