@@ -18,6 +18,10 @@ function App() {
     setInputText("");
   }
 
+  function handleClick(id) {
+    setItems((prevItems) => prevItems.filter((item, index) => index != id));
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -32,7 +36,14 @@ function App() {
       <div>
         <ul>
           {items.map((item, index) => {
-            return <Item key={index} text={item} />;
+            return (
+              <Item
+                onClicked={handleClick}
+                id={index}
+                key={index}
+                text={item}
+              />
+            );
           })}
         </ul>
       </div>

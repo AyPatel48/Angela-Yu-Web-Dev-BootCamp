@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Item({ text }) {
-  const [isCrossedOut, setIsCrossedOut] = useState("");
-
-  const style = {
-    textDecoration: isCrossedOut ? "line-through" : "none",
-    cursor: "pointer",
-  };
-
+export default function Item({ id, text, onClicked }) {
   return (
-    <li style={style} onClick={() => setIsCrossedOut((prev) => !prev)}>
+    <li
+      onClick={() => {
+        onClicked(id);
+      }}
+    >
       {text}
     </li>
   );

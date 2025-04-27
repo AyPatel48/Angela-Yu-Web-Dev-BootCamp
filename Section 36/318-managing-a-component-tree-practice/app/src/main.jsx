@@ -1,8 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
+import {createRoot} from "react-dom/client";
+import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
+
+root.render(<App />);
 
 //CHALLENGE: I have extracted the Input Area, including the <input> and
 //<button> elements into a seperate Component called InputArea.
