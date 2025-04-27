@@ -8,7 +8,7 @@ function App() {
   });
 
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name, value } = event.target; 
 
     setContact(prevValue => {
       if (name === "fName") {
