@@ -1,4 +1,4 @@
-const animals = [
+export const animals = [
   { name: "cat", sound: "meow" },
   { name: "dog", sound: "woof" }
 ];

@@ -1,4 +1,4 @@
-const cars = [
+export const cars = [
   {
     model: "Honda Civic",
     //The top colour refers to the first item in the array below:
